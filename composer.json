@@ -17,5 +17,12 @@
             "Logger": "src/"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Logger\\Laravel\\Providers\\MonologMysqlHandlerServiceProvider"
+            ]
+        }
+    }
 } 

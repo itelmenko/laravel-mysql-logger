@@ -15,10 +15,10 @@ class MysqlHandler extends AbstractProcessingHandler
     {
         Log::create([
             'instance'    => gethostname(),
-            'env'     => $record['channel'],
+            'channel'     => $record['channel'],
             'message' => $record['message'],
             'level'   => $record['level_name'],
-            'context' => $record['context'] // 'context'     => json_encode(array_map("utf8_encode", $record['context'] )),
+            'context' => $record['context']
         ]);
     }
 } 

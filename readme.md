@@ -54,6 +54,7 @@ php artisan migrate
         'mysql' => [
             'driver' => 'custom',
             'via' => Logger\Laravel\Logging\MySQLLogger::class,
+            'name' => 'my.channel' // optional
         ],
     ],
 ```

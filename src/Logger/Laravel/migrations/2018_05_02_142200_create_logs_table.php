@@ -18,7 +18,7 @@ class CreateLogsTable extends Migration
                 $table->engine = 'InnoDB';
                 $table->bigIncrements('id');
                 $table->string('instance')->index();
-                $table->string('env')->index();
+                $table->string('channel')->index();
                 $table->enum('level', [
                     'DEBUG',
                     'INFO',

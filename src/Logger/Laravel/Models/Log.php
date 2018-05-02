@@ -9,7 +9,7 @@ class Log extends Model {
 
     protected $fillable = [
         'instance',
-        'env',
+        'channel',
         'message',
         'level',
         'context'

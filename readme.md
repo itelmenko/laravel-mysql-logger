@@ -8,6 +8,13 @@ This package will log errors into MySQL database instead storage/log/laravel.log
 composer require itelmenko/laravel-mysql-logger
 ~~~
 
+If you wish to change default table name to write the log into or database connection use following definitions in your .env file
+
+~~~
+DB_LOG_TABLE=logs
+DB_LOG_CONNECTION=mysql
+~~~
+
 Open up `config/app.php` and find the `providers` key.
 
 ~~~
@@ -29,27 +36,66 @@ Migrate tables.
 php artisan migrate
 ~~~
 
-## Application Integration
+## Using
 
-In your application `bootstrap/app.php` add:
+### config/logging.php
+```php
+<?php
+    // [...]
 
-~~~php
-$app->configureMonologUsing(function($monolog) use($app) {
-    $monolog->pushHandler(new Logger\Monolog\Handler\MysqlHandler());
-});
-~~~
+    'channels' => [
+        'stack' => [
+            'driver' => 'stack',
+            'channels' => ['mysql'],
+        ],
 
-## Environment configuration
+        // [...]
 
-If you wish to change default table name to write the log into or database connection use following definitions in your .env file
+        'mysql' => [
+            'driver' => 'custom',
+            'via' => App\Logging\MySQLLogger::class,
+        ],
+    ],
+```
 
-~~~
-DB_LOG_TABLE=logs
-DB_LOG_CONNECTION=mysql
-~~~
+### app/Logging/MySQLLogger.php
+
+```php
+<?php
+namespace App\Logging;
+
+use Exception;
+use Monolog\Logger;
+use Logger\Monolog\Handler\MysqlHandler;
+
+class MySQLLogger
+{
+    /**
+     * Create a custom Monolog instance.
+     *
+     * @param  array $config
+     * @return Logger
+     * @throws Exception
+     */
+    public function __invoke(array $config)
+    {
+        $channel = $config['name'] ?? env('APP_ENV');
+        $monolog = new Logger($channel);
+        $monolog->pushHandler(new MysqlHandler());
+        return $monolog;
+    }
+}
+
+```
+
+### Somewhere in your application
+
+```php
+Log::channel('mysql')->info('Something happened!');
+```
 
 ## Credits
 
 Based on:
 
-- [N.M. Gilg4mesh] (https://raw.githubusercontent.com/Gilg4mesh/monolog-mysql/) 
+- [N.M. Gilg4mesh](https://raw.githubusercontent.com/Gilg4mesh/monolog-mysql/) 

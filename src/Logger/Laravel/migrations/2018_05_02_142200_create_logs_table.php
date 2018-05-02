@@ -13,7 +13,7 @@ class CreateLogsTable extends Migration
     public function up()
     {
         Schema::create(
-            env('DB_LOG_TABLE', '2018_01_12_220815_create_logs_table'),
+            env('DB_LOG_TABLE'),
             function (Blueprint $table) {
                 $table->engine = 'InnoDB';
 
@@ -41,6 +41,6 @@ class CreateLogsTable extends Migration
      */
     public function down()
     {
-        Schema::drop(env('DB_LOG_TABLE', '2018_01_12_220815_create_logs_table'));
+        Schema::drop(env('DB_LOG_TABLE'));
     }
-} 
+}

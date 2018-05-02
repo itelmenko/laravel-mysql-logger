@@ -16,20 +16,22 @@ class CreateLogsTable extends Migration
             env('DB_LOG_TABLE'),
             function (Blueprint $table) {
                 $table->engine = 'InnoDB';
-
                 $table->bigIncrements('id');
                 $table->string('instance')->index();
-                $table->string('channel')->index();
-                $table->string('level')->index();
-                $table->string('level_name');
-                $table->text('message');
+                $table->string('env')->index();
+                $table->enum('level', [
+                    'DEBUG',
+                    'INFO',
+                    'NOTICE',
+                    'WARNING',
+                    'ERROR',
+                    'CRITICAL',
+                    'ALERT',
+                    'EMERGENCY'
+                ])->default('INFO');
+                $table->longText('message');
                 $table->text('context');
-
-                $table->integer('remote_addr')->nullable()->unsigned();
-                $table->string('user_agent')->nullable();
-                $table->integer('created_by')->nullable()->index();
-
-                $table->dateTime('created_at');
+                $table->timestamps();
             }
         );
     }

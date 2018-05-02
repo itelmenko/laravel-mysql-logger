@@ -1,6 +1,6 @@
 <?php
 
-namespace Logger\Laravel\Provider;
+namespace Logger\Laravel\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

@@ -6,7 +6,7 @@ use DB;
 use Illuminate\Support\Facades\Auth;
 use Monolog\Logger;
 use Monolog\Handler\AbstractProcessingHandler;
-use Logger\Models\Log;
+use Logger\Laravel\Models\Log;
 
 class MysqlHandler extends AbstractProcessingHandler
 {

@@ -1,4 +1,3 @@
- 
 <?php
 
 namespace Logger\Laravel\Provider;

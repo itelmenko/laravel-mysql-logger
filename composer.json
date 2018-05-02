@@ -1,0 +1,21 @@
+{
+    "name": "itelmenko/laravel-mysql-logger",
+    "description": "Laravel 5.6+ MySQL driver for Monolog",
+    "keywords": ["laravel", "laravel5.6", "log", "monolog", "mysql"],
+    "homepage": "https://github.com/itelmenko/laravel-mysql-logger",
+    "type": "library",
+    "license": "MIT",
+    "authors": [{
+        "name": "Igor Telmenko",
+        "email": "igor.telmenko@gmail.com"
+    }],
+    "require": {
+        "php": ">=7.1.4"
+    },
+    "autoload": {
+        "psr-0": {
+            "Logger": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+} 

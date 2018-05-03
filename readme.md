@@ -20,7 +20,7 @@ Open up `config/app.php` and find the `providers` key.
 ~~~
 'providers' => array(
     // ...
-    Logger\Laravel\Provider\MonologMysqlHandlerServiceProvider::class,
+    Logger\Laravel\Providers\MonologMysqlHandlerServiceProvider::class,
 );
 ~~~
 

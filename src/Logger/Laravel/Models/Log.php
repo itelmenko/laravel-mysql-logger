@@ -27,4 +27,14 @@ class Log extends Model {
 
         parent::__construct($attributes);
     }
+
+    public function changeConnection(string $db_connection)
+    {
+        $this->connection = $db_connection;
+    }
+    
+    public function changeTable(string $table_name)
+    {
+        $this->table = $table_name;
+    }
 }

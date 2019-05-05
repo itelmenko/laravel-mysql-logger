@@ -2,6 +2,7 @@
 namespace Logger\Laravel\Logging;
 
 use Exception;
+use Logger\Monolog\Handler\ExceptionsProcessor;
 use Monolog\Logger;
 use Logger\Monolog\Handler\MysqlHandler;
 
@@ -18,7 +19,9 @@ class MySQLLogger
     {
         $channel = $config['name'] ?? env('APP_ENV');
         $monolog = new Logger($channel);
-        $monolog->pushHandler(new MysqlHandler());
+        $handler = new MysqlHandler();
+        $handler->pushProcessor(new ExceptionsProcessor);
+        $monolog->pushHandler($handler);
         return $monolog;
     }
 }

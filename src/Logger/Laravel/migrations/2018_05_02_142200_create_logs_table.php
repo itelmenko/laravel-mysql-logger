@@ -29,8 +29,8 @@ class CreateLogsTable extends Migration
                     'ALERT',
                     'EMERGENCY'
                 ])->default('INFO');
-                $table->longText('message');
-                $table->text('context');
+                $table->text('message');
+                $table->mediumText('context');
                 $table->timestamps();
             }
         );

@@ -10,7 +10,6 @@ use Logger\Laravel\Models\Log;
 
 class MysqlHandler extends AbstractProcessingHandler
 {
-
     protected function write(array $record)
     {
         Log::create([
@@ -21,4 +20,4 @@ class MysqlHandler extends AbstractProcessingHandler
             'context' => $record['context']
         ]);
     }
-} 
+}

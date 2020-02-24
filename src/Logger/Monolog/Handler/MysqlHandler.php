@@ -10,7 +10,7 @@ use Logger\Laravel\Models\Log;
 
 class MysqlHandler extends AbstractProcessingHandler
 {
-    protected function write(array $record)
+    protected function write(array $record):void
     {
         Log::create([
             'instance'    => gethostname(),

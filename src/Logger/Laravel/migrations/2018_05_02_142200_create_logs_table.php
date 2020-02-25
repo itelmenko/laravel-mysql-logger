@@ -13,7 +13,7 @@ class CreateLogsTable extends Migration
     public function up()
     {
         Schema::create(
-            env('DB_LOG_TABLE'),
+            config('logging.channels.mysql.table'),
             function (Blueprint $table) {
                 $table->engine = 'InnoDB';
                 $table->bigIncrements('id');
@@ -43,6 +43,6 @@ class CreateLogsTable extends Migration
      */
     public function down()
     {
-        Schema::drop(env('DB_LOG_TABLE'));
+        Schema::drop(config('logging.channels.mysql.table'));
     }
 }

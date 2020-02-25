@@ -1,6 +1,6 @@
 ## Laravel Monolog MySQL Handler.
 
-This package will log errors into MySQL database instead storage/log/laravel.log file.
+This package will log errors into MySQL database instead `storage/log/laravel.log` file.
 
 ### Installation
 
@@ -15,7 +15,7 @@ DB_LOG_TABLE=logs
 DB_LOG_CONNECTION=mysql
 ~~~
 
-Open up `config/app.php` and find the `providers` key.
+For Laravel `< 5.5` open up `config/app.php` and find the `providers` key.
 
 ~~~
 'providers' => array(
@@ -54,6 +54,8 @@ php artisan migrate
         'mysql' => [
             'driver' => 'custom',
             'via' => Logger\Laravel\Logging\MySQLLogger::class,
+            'connection' => evn('DB_LOG_CONNECTION'),
+            'table' => env('DB_LOG_TABLE'),
             'name' => 'my.channel' // optional
         ],
     ],
@@ -64,9 +66,3 @@ php artisan migrate
 ```php
 Log::channel('mysql')->info('Something happened!');
 ```
-
-## Credits
-
-Based on:
-
-- [N.M. Gilg4mesh](https://raw.githubusercontent.com/Gilg4mesh/monolog-mysql/) 

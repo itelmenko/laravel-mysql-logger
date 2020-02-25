@@ -22,8 +22,8 @@ class Log extends Model {
 
     public function __construct(array $attributes = array())
     {
-        $this->table      = env('DB_LOG_TABLE', 'logs');
-        $this->connection = env('DB_LOG_CONNECTION', env('DB_CONNECTION', 'mysql'));
+        $this->table      = config('logging.channels.mysql.table');
+        $this->connection = config('logging.channels.mysql.connection');
 
         parent::__construct($attributes);
     }

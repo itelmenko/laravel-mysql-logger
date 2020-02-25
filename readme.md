@@ -54,7 +54,7 @@ php artisan migrate
         'mysql' => [
             'driver' => 'custom',
             'via' => Logger\Laravel\Logging\MySQLLogger::class,
-            'connection' => evn('DB_LOG_CONNECTION'),
+            'connection' => env('DB_LOG_CONNECTION'),
             'table' => env('DB_LOG_TABLE'),
             'name' => 'my.channel' // optional
         ],

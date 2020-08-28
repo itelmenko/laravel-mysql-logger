@@ -17,7 +17,7 @@ class MySQLLogger
      */
     public function __invoke(array $config)
     {
-        $channel = $config['name'] ?? env('APP_ENV');
+        $channel = $config['name'] ?? config('app.env');
         $monolog = new Logger($channel);
         $handler = new MysqlHandler();
         $handler->pushProcessor(new ExceptionsProcessor);

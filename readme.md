@@ -66,3 +66,13 @@ php artisan migrate
 ```php
 Log::channel('mysql')->info('Something happened!');
 ```
+
+## TODO
+
+* Change `$table->bigIncrements('id')` to something like UIID.
+* Change root namespace to `ITelmenko`
+* Remove `extra` fields from model
+* Update version and readme.md (about a changing of migration, about vendor:publish)
+* Add `php doc`
+* Add phpcs
+

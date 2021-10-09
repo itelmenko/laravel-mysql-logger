@@ -10,19 +10,19 @@
         "email": "igor.telmenko@gmail.com"
     }],
     "require": {
-        "php": ">=7.1.4"
+        "php": ">=7.3.0"
     },
     "autoload": {
         "psr-0": {
-            "Logger": "src/"
+            "ITelmenko\\": "src/"
         }
     },
     "minimum-stability": "stable",
     "extra": {
         "laravel": {
             "providers": [
-                "Logger\\Laravel\\Providers\\MonologMysqlHandlerServiceProvider"
+                "ITelmenko\\Logger\\Laravel\\Providers\\MonologMysqlHandlerServiceProvider"
             ]
         }
     }
-} 
+}

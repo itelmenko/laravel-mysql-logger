@@ -20,7 +20,7 @@ For Laravel `< 5.5` open up `config/app.php` and find the `providers` key.
 ~~~
 'providers' => array(
     // ...
-    Logger\Laravel\Providers\MonologMysqlHandlerServiceProvider::class,
+    ITelmenko\Logger\Laravel\Providers\MonologMysqlHandlerServiceProvider::class,
 );
 ~~~
 
@@ -53,7 +53,7 @@ php artisan migrate
 
         'mysql' => [
             'driver' => 'custom',
-            'via' => Logger\Laravel\Logging\MySQLLogger::class,
+            'via' => ITelmenko\Logger\Laravel\Logging\MySQLLogger::class,
             'connection' => env('DB_LOG_CONNECTION'),
             'table' => env('DB_LOG_TABLE'),
             'name' => 'my.channel' // optional
@@ -70,7 +70,7 @@ Log::channel('mysql')->info('Something happened!');
 ## TODO
 
 * Change `$table->bigIncrements('id')` to something like UIID.
-* Change root namespace to `ITelmenko`
+* ~~Change root namespace to~~ `ITelmenko`
 * ~~Remove `extra` fields from model~~
 * ~~Remove updated_at?~~
 * ~~Add microseconds for created_at~~

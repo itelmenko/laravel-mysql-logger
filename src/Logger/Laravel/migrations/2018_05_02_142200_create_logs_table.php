@@ -31,7 +31,7 @@ class CreateLogsTable extends Migration
                 ])->default('INFO');
                 $table->text('message');
                 $table->mediumText('context');
-                $table->timestamps();
+                $table->timestamp('created_at', 6)->nullable();
             }
         );
     }

@@ -71,7 +71,9 @@ Log::channel('mysql')->info('Something happened!');
 
 * Change `$table->bigIncrements('id')` to something like UIID.
 * Change root namespace to `ITelmenko`
-* Remove `extra` fields from model
+* ~~Remove `extra` fields from model~~
+* ~~Remove updated_at?~~
+* ~~Add microseconds for created_at~~
 * Update version and readme.md (about a changing of migration, about vendor:publish)
 * Add `php doc`
 * Add phpcs

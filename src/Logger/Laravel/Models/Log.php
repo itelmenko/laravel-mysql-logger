@@ -17,8 +17,11 @@ class Log extends Model {
 
     protected $casts = [
         'context' => 'array',
-        'extra'   => 'array'
     ];
+
+    protected $dateFormat = 'Y-m-d H:i:s.u';
+
+    const UPDATED_AT = null;
 
     public function __construct(array $attributes = array())
     {

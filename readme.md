@@ -69,7 +69,7 @@ Log::channel('mysql')->info('Something happened!');
 
 ## TODO
 
-* Change `$table->bigIncrements('id')` to something like UIID.
+* ~~Change `$table->bigIncrements('id')` to something like ULID~~
 * ~~Change root namespace to~~ `ITelmenko`
 * ~~Remove `extra` fields from model~~
 * ~~Remove updated_at?~~

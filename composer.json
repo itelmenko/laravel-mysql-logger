@@ -10,7 +10,9 @@
         "email": "igor.telmenko@gmail.com"
     }],
     "require": {
-        "php": ">=7.3.0"
+        "php": ">=7.3.0",
+        "laravel/framework": "^5.3|^6.0|^7.0|^8.0",
+        "rorecek/laravel-ulid" : "^2.0"
     },
     "autoload": {
         "psr-0": {

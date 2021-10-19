@@ -1,6 +1,6 @@
 <?php
 
-namespace Logger\Monolog\Handler;
+namespace ITelmenko\Logger\Monolog\Handler;
 
 class ExceptionsProcessor {
 

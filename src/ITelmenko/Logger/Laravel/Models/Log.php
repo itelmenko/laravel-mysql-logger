@@ -1,11 +1,14 @@
 <?php
 
-namespace Logger\Laravel\Models;
+namespace ITelmenko\Logger\Laravel\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Rorecek\Ulid\HasUlid;
 
 
 class Log extends Model {
+
+    use HasUlid;
 
     protected $fillable = [
         'instance',
@@ -17,8 +20,11 @@ class Log extends Model {
 
     protected $casts = [
         'context' => 'array',
-        'extra'   => 'array'
     ];
+
+    protected $dateFormat = 'Y-m-d H:i:s.u';
+
+    const UPDATED_AT = null;
 
     public function __construct(array $attributes = array())
     {

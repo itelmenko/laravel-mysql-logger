@@ -1,12 +1,9 @@
 <?php
 
-namespace Logger\Monolog\Handler;
+namespace ITelmenko\Logger\Monolog\Handler;
 
-use DB;
-use Illuminate\Support\Facades\Auth;
-use Monolog\Logger;
 use Monolog\Handler\AbstractProcessingHandler;
-use Logger\Laravel\Models\Log;
+use ITelmenko\Logger\Laravel\Models\Log;
 
 class MysqlHandler extends AbstractProcessingHandler
 {

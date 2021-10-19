@@ -1,10 +1,10 @@
 <?php
-namespace Logger\Laravel\Logging;
+namespace ITelmenko\Logger\Laravel\Logging;
 
 use Exception;
-use Logger\Monolog\Handler\ExceptionsProcessor;
+use ITelmenko\Logger\Monolog\Handler\ExceptionsProcessor;
 use Monolog\Logger;
-use Logger\Monolog\Handler\MysqlHandler;
+use ITelmenko\Logger\Monolog\Handler\MysqlHandler;
 
 class MySQLLogger
 {

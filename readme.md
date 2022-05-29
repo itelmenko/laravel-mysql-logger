@@ -24,30 +24,13 @@ For Laravel `< 5.5` open up `config/app.php` and find the `providers` key.
 );
 ~~~
 
-Publish config using Laravel Artisan CLI.
+In config/logging.php
 
-~~~
-php artisan vendor:publish
-~~~
-
-Migrate tables.
-
-~~~
-php artisan migrate
-~~~
-
-## Using
-
-### In config/logging.php
 ```php
 <?php
     // [...]
 
     'channels' => [
-        'stack' => [
-            'driver' => 'stack',
-            'channels' => ['mysql'],
-        ],
 
         // [...]
 
@@ -60,6 +43,22 @@ php artisan migrate
         ],
     ],
 ```
+
+Publish config using Laravel Artisan CLI.
+
+~~~
+php artisan vendor:publish
+~~~
+
+and select the option `Provider: ITelmenko\Logger\Laravel\Providers\MonologMysqlHandlerServiceProvider`
+
+Migrate tables.
+
+~~~
+php artisan migrate
+~~~
+
+## Using
 
 ### Somewhere in your application
 

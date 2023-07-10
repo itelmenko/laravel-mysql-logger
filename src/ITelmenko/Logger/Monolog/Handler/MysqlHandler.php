@@ -7,7 +7,11 @@ use ITelmenko\Logger\Laravel\Models\Log;
 
 class MysqlHandler extends AbstractProcessingHandler
 {
-    protected function write(array $record):void
+    /**
+     * @param array|Monolog\LogRecord $record
+     * @return void
+     */
+    protected function write($record): void
     {
         Log::create([
             'instance'    => gethostname(),

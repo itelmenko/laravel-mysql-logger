@@ -58,6 +58,22 @@ Migrate tables.
 php artisan migrate
 ~~~
 
+Add `ITelmenko\Logger\Laravel\Exceptions\MysqlLoggerInsertException` into your `ExceptionHandler` to prevent looping when a database connection fails:
+
+~~~
+public function register()
+{
+    $this->reportable(function (Throwable $e) {
+        if ($this->shouldReport($e) && app()->bound('sentry')) {
+            app('sentry')->captureException($e);
+        }
+        if ($e instanceof MysqlLoggerInsertException) {
+            return false; // prevent looping 
+        }
+    });
+}
+~~~
+
 ## Using
 
 ### Somewhere in your application

@@ -2,13 +2,13 @@
 
 namespace ITelmenko\Logger\Laravel\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
-use Rorecek\Ulid\HasUlid;
 
 
 class Log extends Model {
 
-    use HasUlid;
+    use HasUuids;
 
     protected $fillable = [
         'instance',

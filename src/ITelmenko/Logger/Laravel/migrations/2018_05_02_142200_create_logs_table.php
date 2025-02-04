@@ -16,7 +16,7 @@ class CreateLogsTable extends Migration
             config('logging.channels.mysql.table'),
             function (Blueprint $table) {
                 $table->engine = 'InnoDB';
-                $table->char('id', 26)->primary();
+                $table->char('id', 36)->primary();
                 $table->string('instance')->index();
                 $table->string('channel')->index();
                 $table->enum('level', [

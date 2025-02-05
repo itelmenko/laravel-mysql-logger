@@ -4,11 +4,15 @@ namespace ITelmenko\Logger\Laravel\Models;
 
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Str;
 
 class Log extends Model {
 
     use HasUuids;
+
+    const UPDATED_AT = null;
+
+    protected $dateFormat = 'Y-m-d H:i:s.u';
 
     protected $fillable = [
         'instance',
@@ -22,16 +26,17 @@ class Log extends Model {
         'context' => 'array',
     ];
 
-    protected $dateFormat = 'Y-m-d H:i:s.u';
-
-    const UPDATED_AT = null;
-
     public function __construct(array $attributes = array())
     {
         $this->table      = config('logging.channels.mysql.table');
         $this->connection = config('logging.channels.mysql.connection');
 
         parent::__construct($attributes);
+    }
+
+    public function newUniqueId()
+    {
+        return (string) Str::ulid();
     }
 
     public function changeConnection(string $db_connection)

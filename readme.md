@@ -8,6 +8,13 @@ This package will log errors into MySQL database instead `storage/log/laravel.lo
 composer require itelmenko/laravel-mysql-logger
 ~~~
 
+For Laravel earlier than 10.0, please use version 1.0.7 of this package.:
+
+~~~
+composer require itelmenko/laravel-mysql-logger:v1.0.7
+~~~
+
+
 If you wish to change default table name to write the log into or database connection use following definitions in your .env file
 
 ~~~
